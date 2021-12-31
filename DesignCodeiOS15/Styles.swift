@@ -13,7 +13,14 @@ struct StrokeStyle: ViewModifier {
     func body(content: Content) -> some View {
         content.overlay(
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .stroke(.linearGradient(colors: [.white.opacity(colorScheme == .dark ? 0.6: 0.3), .black.opacity(colorScheme == .dark ? 0.3 : 0.1)], startPoint: .top, endPoint: .bottom))
+                .stroke(
+                    .linearGradient(
+                        colors: [
+                            .white.opacity(colorScheme == .dark ? 0.6: 0.3),
+                            .black.opacity(colorScheme == .dark ? 0.3 : 0.1)
+                        ], startPoint: .top, endPoint: .bottom
+                    )
+                )
                 .blendMode(.overlay)
         )
     }
