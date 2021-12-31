@@ -39,7 +39,9 @@ struct AccountView: View {
                 .padding()
                 
                 Section {
-                    Label("Settings", systemImage: "gear")
+                    NavigationLink(destination: ContentView()) {
+                        Label("Settings", systemImage: "gear")
+                    }
                     Label("Billing", systemImage: "creditcard")
                     Label("Help", systemImage: "questionmark")
                         .imageScale(.small)
