@@ -42,10 +42,15 @@ struct AccountView: View {
                     NavigationLink(destination: ContentView()) {
                         Label("Settings", systemImage: "gear")
                     }
-                    Label("Billing", systemImage: "creditcard")
-                    Label("Help", systemImage: "questionmark")
-                        .imageScale(.small)
+                    // Alternative NavigationLink approach
+                    NavigationLink { Text("Billing") } label: {
+                        Label("Billing", systemImage: "creditcard")
+                    }
+                    NavigationLink { ContentView() } label: {
+                        Label("Help", systemImage: "questionmark")
+                    }
                 }
+                .accentColor(.primary)
                 .listRowSeparatorTint(.blue)
                 .listRowSeparator(.hidden)
             }
