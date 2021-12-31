@@ -11,7 +11,7 @@ struct AccountView: View {
     var body: some View {
         NavigationView {
             List {
-                VStack {
+                VStack(spacing: 8) {
                     Image(systemName: "person.crop.circle.badge.checkmark")
                         .symbolVariant(.circle.fill)
                         .font(.system(size: 32))
@@ -26,12 +26,23 @@ struct AccountView: View {
                                 .font(.system(size: 200))
                                 .offset(x: -50, y: -100)
                     )
+                    Text("Austin Burke")
+                        .font(.title.weight(.semibold))
+                    HStack {
+                        Image(systemName: "location")
+                            .imageScale(.large)
+                        Text("United States")
+                            .foregroundColor(.secondary)
+                    }
                 }
                 .frame(maxWidth: .infinity)
+                .padding()
+                
                 Section {
-                    Text("Settings")
-                    Text("Billing")
-                    Text("Help")
+                    Label("Settings", systemImage: "gear")
+                    Label("Billing", systemImage: "creditcard")
+                    Label("Help", systemImage: "questionmark")
+                        .imageScale(.small)
                 }
                 .listRowSeparatorTint(.blue)
                 .listRowSeparator(.hidden)
