@@ -13,11 +13,11 @@ struct AccountView: View {
             List {
                 Section {
                     Text("Settings")
-                        .listRowSeparatorTint(.blue)
-                    .listRowSeparator(.hidden)
+                    Text("Billing")
+                    Text("Help")
                 }
-                Text("Billing")
-                Text("Help")
+                .listRowSeparatorTint(.blue)
+                .listRowSeparator(.hidden)
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Account")
