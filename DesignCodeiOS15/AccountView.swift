@@ -63,6 +63,12 @@ struct AccountView: View {
                                 .foregroundColor(.secondary)
                         }
                     }
+                    .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                        Button(action: {}) {
+                            Label("", systemImage: "trash")
+                        }
+                        .tint(.red)
+                    }
                     Link(destination: URL(string: "https://www.youtube.com")!) {
                         HStack {
                             Label("YouTube", systemImage: "tv")
