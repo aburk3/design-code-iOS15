@@ -53,6 +53,13 @@ struct AccountView: View {
                 .accentColor(.primary)
                 .listRowSeparatorTint(.blue)
                 .listRowSeparator(.hidden)
+                
+                Section {
+                    Link(destination: URL(string: "https://www.austinburke.dev")!) {
+                        Label("Website", systemImage: "house")
+                    }
+                }
+                .accentColor(.primary)
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Account")
