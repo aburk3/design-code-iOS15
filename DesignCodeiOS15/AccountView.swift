@@ -56,10 +56,24 @@ struct AccountView: View {
                 
                 Section {
                     Link(destination: URL(string: "https://www.austinburke.dev")!) {
-                        Label("Website", systemImage: "house")
+                        HStack {
+                            Label("Website", systemImage: "house")
+                            Spacer()
+                            Image(systemName: "link")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    Link(destination: URL(string: "https://www.youtube.com")!) {
+                        HStack {
+                            Label("YouTube", systemImage: "tv")
+                            Spacer()
+                            Image(systemName: "link")
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 .accentColor(.primary)
+                .listRowSeparator(.hidden)
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Account")
