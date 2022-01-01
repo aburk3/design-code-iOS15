@@ -88,14 +88,7 @@ struct AccountView: View {
                         Label("", systemImage: "trash")
                     }
                     .tint(.red)
-                    Button { isPinned.toggle() } label: {
-                        if isPinned {
-                            Label("Unpin", systemImage: "pin.slash")
-                        } else {
-                            Label("Pin", systemImage: "pin")
-                        }
-                    }
-                    .tint(.yellow)
+                    pinButton
                 }
             }
             Link(destination: URL(string: "https://www.youtube.com")!) {
@@ -106,9 +99,23 @@ struct AccountView: View {
                         .foregroundColor(.secondary)
                 }
             }
+            .swipeActions {
+                pinButton
+            }
         }
         .accentColor(.primary)
         .listRowSeparator(.hidden)
+    }
+    
+    var pinButton: some View {
+        Button { isPinned.toggle() } label: {
+            if isPinned {
+                Label("Unpin", systemImage: "pin.slash")
+            } else {
+                Label("Pin", systemImage: "pin")
+            }
+        }
+        .tint(isPinned ? .gray : .yellow)
     }
 }
 
