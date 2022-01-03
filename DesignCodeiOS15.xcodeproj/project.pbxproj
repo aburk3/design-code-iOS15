@@ -14,6 +14,7 @@
 		D9B82912277E016C00DB12E8 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B82911277E016C00DB12E8 /* Styles.swift */; };
 		D9B82914277F551700DB12E8 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B82913277F551700DB12E8 /* AccountView.swift */; };
 		D9F603FE2780FD5800A36CDD /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F603FD2780FD5800A36CDD /* HexagonView.swift */; };
+		D9F604002782381D00A36CDD /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F603FF2782381D00A36CDD /* BlobView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D9B82911277E016C00DB12E8 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		D9B82913277F551700DB12E8 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		D9F603FD2780FD5800A36CDD /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
+		D9F603FF2782381D00A36CDD /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				D92163BB2774A2CE00681C74 /* DesignCodeiOS15App.swift */,
 				D92163BD2774A2CE00681C74 /* ContentView.swift */,
 				D9B82913277F551700DB12E8 /* AccountView.swift */,
+				D9F603FF2782381D00A36CDD /* BlobView.swift */,
 				D9F603FD2780FD5800A36CDD /* HexagonView.swift */,
 				D9B82911277E016C00DB12E8 /* Styles.swift */,
 				D92163BF2774A2CF00681C74 /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				D9B82914277F551700DB12E8 /* AccountView.swift in Sources */,
 				D9F603FE2780FD5800A36CDD /* HexagonView.swift in Sources */,
 				D9B82912277E016C00DB12E8 /* Styles.swift in Sources */,
+				D9F604002782381D00A36CDD /* BlobView.swift in Sources */,
 				D92163BE2774A2CE00681C74 /* ContentView.swift in Sources */,
 				D92163BC2774A2CE00681C74 /* DesignCodeiOS15App.swift in Sources */,
 			);
