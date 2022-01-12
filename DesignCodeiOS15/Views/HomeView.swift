@@ -19,8 +19,8 @@ struct HomeView: View {
             .frame(height: 0)
             
             TabView {
-                ForEach(0 ..< 5) { item in
-                    FeaturedItem()
+                ForEach(courses) { item in
+                    FeaturedItem(course: item)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
