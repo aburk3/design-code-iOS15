@@ -11,43 +11,55 @@ struct HomeView: View {
     @State var hasScrolled = false
     
     var body: some View {
-        ScrollView {
-            GeometryReader { proxy in
-//                Text("\(proxy.frame(in: .named("scroll")).minY)")
-                Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
+        ZStack {
+            Color("Background").ignoresSafeArea()
+
+            ScrollView {
+                scrollDetection
+                
+                featured
+                
+                Color.clear.frame(height: 1000)
             }
-            .frame(height: 0)
-            
-            TabView {
-                ForEach(courses) { item in
-                    FeaturedItem(course: item)
+            // Set name of space to use inside proxy.frame
+            .coordinateSpace(name: "scroll")
+            .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
+                withAnimation(.easeInOut) {
+                    if value < 0 {
+                        hasScrolled = true
+                    } else {
+                        hasScrolled = false
+                    }
                 }
-            }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .frame(height: 430)
-            .background(
-                Image("Blob 1")
-                    .offset(x: 250, y: -100)
-            )
-            
-            Color.clear.frame(height: 1000)
+            })
+            .safeAreaInset(edge: .top, content: {
+                Color.clear.frame(height: 70)
+            })
+            .overlay(
+                NavigationBar(title: "Featured", hasScrolled: $hasScrolled)
+        )
         }
-        // Set name of space to use inside proxy.frame
-        .coordinateSpace(name: "scroll")
-        .onPreferenceChange(ScrollPreferenceKey.self, perform: { value in
-            withAnimation(.easeInOut) {
-                if value < 0 {
-                    hasScrolled = true
-                } else {
-                    hasScrolled = false
-                }
+    }
+    
+    var scrollDetection: some View {
+        GeometryReader { proxy in
+//                Text("\(proxy.frame(in: .named("scroll")).minY)")
+            Color.clear.preference(key: ScrollPreferenceKey.self, value: proxy.frame(in: .named("scroll")).minY)
+        }
+        .frame(height: 0)
+    }
+    
+    var featured: some View {
+        TabView {
+            ForEach(courses) { item in
+                FeaturedItem(course: item)
             }
-        })
-        .safeAreaInset(edge: .top, content: {
-            Color.clear.frame(height: 70)
-        })
-        .overlay(
-            NavigationBar(title: "Featured", hasScrolled: $hasScrolled)
+        }
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .frame(height: 430)
+        .background(
+            Image("Blob 1")
+                .offset(x: 250, y: -100)
         )
     }
 }
