@@ -15,9 +15,11 @@ struct MatchedView: View {
         ZStack {
             if !show {
                 Text("SwiftUI")
+                    .matchedGeometryEffect(id: "title", in: namespace)
                     .frame(maxWidth: .infinity, alignment: .leading)
             } else {
                 Text("SwiftUI")
+                    .matchedGeometryEffect(id: "title", in: namespace)
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
         }
