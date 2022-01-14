@@ -31,7 +31,20 @@ struct MatchedView: View {
                 .padding(20)
                 .foregroundStyle(.white)
                 .background(
-                    Color.red.matchedGeometryEffect(id: "background", in: namespace)
+                    Image("Illustration 9")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: "image", in: namespace)
+                )
+                .background(
+                    Image("Background 5")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .matchedGeometryEffect(id: "background", in: namespace)
+                )
+                .mask(
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .matchedGeometryEffect(id: "mask", in: namespace)
                 )
                 .padding(20)
             } else {
@@ -51,7 +64,20 @@ struct MatchedView: View {
                 .padding(20)
                 .foregroundStyle(.black)
                 .background(
-                    Color.blue.matchedGeometryEffect(id: "background", in: namespace)
+                    Image("Illustration 9")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: "image", in: namespace)
+                )
+                .background(
+                    Image("Background 5")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .matchedGeometryEffect(id: "background", in: namespace)
+                )
+                .mask(
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .matchedGeometryEffect(id: "mask", in: namespace)
                 )
             }
         }
