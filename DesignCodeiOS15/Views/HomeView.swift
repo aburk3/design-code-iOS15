@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @State var hasScrolled = false
+    @Namespace var namespace
+    @State var show = false
     
     var body: some View {
         ZStack {
@@ -19,16 +21,33 @@ struct HomeView: View {
                 
                 featured
                 
-                Color.clear.frame(height: 1000)
+                Text("Courses".uppercased())
+                    .font(.footnote.weight(.semibold))
+                    .foregroundColor(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                
+                if !show {
+                    CourseItem(namespace: namespace, show: $show)
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                                show.toggle()
+                            }
+                        }
+                }
             }
             // Set name of space to use inside proxy.frame
             .coordinateSpace(name: "scroll")
-                        .safeAreaInset(edge: .top, content: {
+            .safeAreaInset(edge: .top, content: {
                 Color.clear.frame(height: 70)
             })
             .overlay(
                 NavigationBar(title: "Featured", hasScrolled: $hasScrolled)
-        )
+            )
+            
+            if show {
+                CourseView(namespace: namespace, show: $show)
+            }
         }
     }
     
