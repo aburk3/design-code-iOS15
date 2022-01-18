@@ -12,6 +12,7 @@ struct HomeView: View {
     @Namespace var namespace
     @State var show = false
     @State var showStatusBar = true
+    @State var selectedID = UUID()
     
     var body: some View {
         ZStack {
@@ -35,6 +36,7 @@ struct HomeView: View {
                                 withAnimation(.openCard) {
                                     show.toggle()
                                     showStatusBar = false
+                                    selectedID = course.id
                                 }
                         }
                     }
@@ -51,11 +53,13 @@ struct HomeView: View {
             
             if show {
                 ForEach(courses) { course in
-                    CourseView(namespace: namespace, course: course, show: $show)
-                        .zIndex(1)
-                        .transition(.asymmetric(
-                            insertion: .opacity.animation(.easeInOut(duration: 0.1)),
-                        removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.3))))
+                    if course.id == selectedID {
+                        CourseView(namespace: namespace, course: course, show: $show)
+                            .zIndex(1)
+                            .transition(.asymmetric(
+                                insertion: .opacity.animation(.easeInOut(duration: 0.1)),
+                            removal: .opacity.animation(.easeInOut(duration: 0.3).delay(0.3))))
+                    }
                 }
             }
         }
